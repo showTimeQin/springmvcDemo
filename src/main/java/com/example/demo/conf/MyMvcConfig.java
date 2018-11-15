@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.conf;
 
 import com.example.demo.interceptor.DemoInterceptor;
 import com.example.demo.messageconverter.MyMessageConverter;
@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.*;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
+@EnableScheduling
 @ComponentScan("com.example.demo")
 public class MyMvcConfig extends WebMvcConfigurerAdapter {
     @Bean
@@ -76,6 +78,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {
         registry.addViewController("/toUpload").setViewName("/upload");
         registry.addViewController("/converter").setViewName("/converter");
         registry.addViewController("/sse").setViewName("/sse");
+        registry.addViewController("/async").setViewName("/async");
     }
 
     //忽略.

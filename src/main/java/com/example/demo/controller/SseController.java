@@ -11,15 +11,14 @@ import java.util.Random;
 
 @Controller
 public class SseController {
-    @RequestMapping(value = "/push", produces = "text/event-stream")
+    @RequestMapping(value = "/push", produces = "text/event-stream; charset=UTF-8")
     public @ResponseBody String push(HttpServletResponse response) {
-        response.setContentType("text/event-stream, charset=UTF-8");
         Random r = new Random();
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "data:Testing 1,2,3\n\n";
+        return "data:Testing 1,2,3" + r.nextInt() + "\n\n";
     }
 }
