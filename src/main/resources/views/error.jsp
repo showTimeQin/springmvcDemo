@@ -3,11 +3,11 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Insert title here</title>
+    <title>Error</title>
 </head>
 <body>
 <pre>
-    ${errorMessage}
+    出现错误：${errorMessage}
 </pre>
 </body>
 </html>
